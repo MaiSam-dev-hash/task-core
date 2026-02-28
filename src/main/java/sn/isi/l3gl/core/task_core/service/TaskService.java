@@ -12,6 +12,7 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
+    // Version 0.0.1-SNAPSHOT
     public Task createTask(Task task) {
         task.setStatus(Status.TODO);
         return taskRepository.save(task);
