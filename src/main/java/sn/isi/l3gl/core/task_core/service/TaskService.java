@@ -24,4 +24,13 @@ public class TaskService {
     public List<Task> listTasks() {
         return taskRepository.findAll();
     }
+
+    // 0.2.0-SNAPSHOT
+    public Task updateStatus(Long id, Status status) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        task.setStatus(status);
+        return taskRepository.save(task);
+    }
 }
