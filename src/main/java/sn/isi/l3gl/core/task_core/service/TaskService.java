@@ -6,6 +6,8 @@ import sn.isi.l3gl.core.task_core.entity.Task;
 import sn.isi.l3gl.core.task_core.enums.Status;
 import sn.isi.l3gl.core.task_core.repository.TaskRepository;
 
+import java.util.List;
+
 @Service
 public class TaskService {
 
@@ -16,5 +18,10 @@ public class TaskService {
     public Task createTask(Task task) {
         task.setStatus(Status.TODO);
         return taskRepository.save(task);
+    }
+
+    // Version 0.1.0-SNAPSHOT
+    public List<Task> listTasks() {
+        return taskRepository.findAll();
     }
 }
